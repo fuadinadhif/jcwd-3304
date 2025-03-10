@@ -97,6 +97,22 @@ function findDuplicate(inputArray: number[]): number[] {
 
 console.log(findDuplicate([1, 1, 2, 3, 3, 4, 5, 5]));
 
+/*
+LOOP OF 1
+countMap = {}
+num: 1
+countMap[1] === undefined ? TRUE
+countMap[1] = 1
+countMap = {1: 1}
+
+LOOP OF 2
+countMap = {1: 1}
+num: 1
+countMap[1] === undefined ? FALSE
+countMap[1]++ = countMap[1] + 1 = 2
+countMap = {1: 2}
+*/
+
 /* -------------------------------------------------------------------------- */
 /*                                    NOTE                                    */
 /* -------------------------------------------------------------------------- */
@@ -115,3 +131,6 @@ console.log(array1.concat(array2));
 const peopleProfile = { name: "John Doe", age: 10 };
 console.log(peopleProfile.name);
 console.log(peopleProfile["name"]);
+
+const someMap = { 1: 10 };
+console.log(someMap[1] === undefined);

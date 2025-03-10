@@ -1,14 +1,19 @@
 /* -------------------------------------------------------------------------- */
 /*                                   FOR OF                                   */
 /* -------------------------------------------------------------------------- */
+/* ---------------------------------- ARRAY --------------------------------- */
 const someArray = [10, 20, 30, 40];
 
 for (let i = 0; i < someArray.length; i++) {
   console.log(someArray[i]);
 }
 
-for (const num of someArray) {
-  console.log(num);
+for (const el of someArray) {
+  console.log(el);
+}
+
+for (const index in someArray) {
+  console.log(index);
 }
 
 /* -------------------------------------------------------------------------- */
