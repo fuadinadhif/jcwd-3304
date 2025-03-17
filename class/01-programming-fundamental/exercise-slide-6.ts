@@ -70,7 +70,7 @@ function findHighestLowestAvgData(inputArray) {
   };
 }
 
-console.log(findHighestLowestAvgData(arrayOfStudent));
+// console.log(findHighestLowestAvgData(arrayOfStudent));
 
 // 2.
 class TheProduct {
@@ -86,8 +86,8 @@ class TheProduct {
 const rice = new TheProduct("Rice", 15000);
 const cookingOil = new TheProduct("Cooking Oil", 14000);
 
-console.log(rice);
-console.log(cookingOil);
+// console.log(rice);
+// console.log(cookingOil);
 
 class TheTransaction {
   total: number = 0;
@@ -101,12 +101,26 @@ class TheTransaction {
   showTotal() {
     return this.total;
   }
+
+  showCart() {
+    const result = this.cart.map((item) => {
+      return item.name;
+    });
+    return result;
+  }
+
+  checkout() {
+    const result = this.cart.map((item) => {
+      return item.name;
+    });
+    return `Total: ${this.total}, Cart: ${result.join(", ")}`;
+  }
 }
 
 const transaction = new TheTransaction();
 
-console.log(transaction.cart);
-console.log(transaction.total);
+// console.log(transaction.cart);
+// console.log(transaction.total);
 
 transaction.addToCart({ name: rice.name, price: rice.price, quantity: 10 });
 transaction.addToCart({
@@ -116,7 +130,9 @@ transaction.addToCart({
 });
 transaction.addToCart({ name: rice.name, price: rice.price, quantity: 5 });
 
-console.log(transaction.cart);
-console.log(transaction.total);
+// console.log(transaction.cart);
+// console.log(transaction.total);
+console.log(transaction.checkout());
+// console.log(transaction.showCart());
 
 /* ---------------------------------- Note ---------------------------------- */
