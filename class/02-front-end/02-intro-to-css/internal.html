@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frame</title>
+    <style>
+      /* Selector Element Name */
+      img {
+        width: 100%;
+        border: solid 10px;
+      }
+
+      /* Selector Class Name */
+      /* Reuseable - class yang sama boleh dipakai berkali-kali di element yang berbeda */
+      .frame-class {
+        border-radius: 50%;
+      }
+
+      /* Selector Id Name */
+      /* Non-reuseable - Satu Id hanya boleh dipakai di satu element saja */
+      #first-img {
+        border-color: bisque;
+      }
+
+      #second-img {
+        border-color: greenyellow;
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      src="https://images.unsplash.com/photo-1471922694854-ff1b63b20054?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      alt="A beach with bird flying around"
+      class="frame-class"
+      id="first-img"
+    />
+    <img
+      src="beach-image.png"
+      alt="Beautiful beach"
+      class="frame-class"
+      id="second-img"
+    />
+
+    <div
+      style="width: 100px; height: 100px; background-color: brown"
+      class="frame-class"
+    ></div>
+  </body>
+</html>

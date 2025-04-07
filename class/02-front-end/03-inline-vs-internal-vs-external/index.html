@@ -1,0 +1,46 @@
+<!-- Aturan Implementasi Rules CSS -->
+<!-- 1. Lihat bobot CSS selector-nya, urutan prioritasnya:
+- ID (1)
+- Class (2)
+- Element (3)
+
+2. Kalau ada dua selector dengan bobot yang sama, maka lihat mana yang paling dekat dengan elementnya 
+
+3. Don't you ever dare to use !important
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      #judul {
+        font-weight: 400;
+      }
+
+      .title2 {
+        text-transform: lowercase !important;
+      }
+
+      .title1 {
+        font-weight: bold;
+        text-transform: uppercase !important;
+      }
+
+      h1 {
+        /* color: blue; */
+        font-size: 72px;
+        text-decoration: none;
+        font-weight: 100;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="color: red; font-size: 45px" class="title1 title2" id="judul">
+      Title
+    </h1>
+  </body>
+</html>

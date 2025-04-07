@@ -1,0 +1,38 @@
+body {
+  background: hsl(0, 0%, 8%);
+}
+
+#container {
+  background-color: hsl(0, 0%, 30%);
+  width: fit-content;
+  height: fit-content;
+  border-radius: 12px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-bottom: 35px;
+}
+
+img {
+  width: 70px;
+  height: 70px;
+  margin: auto;
+  display: block;
+  border-radius: 50%;
+}
+
+h1,
+p {
+  margin-right: auto;
+  margin-left: auto;
+  width: fit-content;
+}
+
+a {
+  display: block;
+  background-color: white;
+  margin-bottom: 10px;
+}
