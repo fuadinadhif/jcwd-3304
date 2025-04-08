@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 1</title>
+    <style>
+      body {
+        background-color: black;
+        position: relative;
+        margin: 0;
+        border: 1px solid red;
+      }
+
+      .square {
+        width: 50px;
+        height: 50px;
+      }
+
+      #parent {
+        width: 50%;
+        height: 100px;
+        background-color: pink;
+      }
+
+      #top-left {
+        background-color: blue;
+      }
+
+      #top-right {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        background-color: red;
+      }
+
+      #bottom-right {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: yellow;
+      }
+
+      #bottom-left {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      <div id="top-left" class="square"></div>
+      <div id="top-right" class="square"></div>
+      <div id="bottom-right" class="square"></div>
+      <div id="bottom-left" class="square"></div>
+    </div>
+  </body>
+</html>

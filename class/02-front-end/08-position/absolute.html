@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Absolute Position</title>
+    <style>
+      body {
+        background-color: black;
+      }
+
+      #parent {
+        /* position: relative; */
+        width: 200px;
+        height: 200px;
+        background-color: yellow;
+      }
+
+      .children {
+        /* position: absolute; */
+        width: 50px;
+        height: 50px;
+      }
+
+      .one {
+        background-color: red;
+      }
+
+      .two {
+        position: relative;
+        background-color: blue;
+        bottom: 20px;
+        right: 10;
+      }
+
+      .three {
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      <div class="children one"></div>
+      <div class="children two"></div>
+      <div class="children three"></div>
+    </div>
+  </body>
+</html>

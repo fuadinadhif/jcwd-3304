@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Query Min-Widht</title>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      div {
+        width: 100%;
+        height: 100px;
+        background-color: purple;
+        border: 1px solid blue;
+      }
+
+      /* Handphone Dimension - Break Point */
+      @media (min-width: 350px) {
+        div {
+          background-color: yellow;
+        }
+      }
+
+      /* Tablet/iPad Dimension - Break Point */
+      @media (min-width: 600px) {
+        div {
+          background-color: red;
+        }
+      }
+
+      /* Desktop Dimension - Break Point */
+      @media (min-width: 1000px) {
+        body {
+          flex-direction: row;
+        }
+
+        div {
+          background-color: black;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </body>
+</html>

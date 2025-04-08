@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 2</title>
+  </head>
+  <style>
+    body {
+      background-color: black;
+    }
+
+    .square {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+    }
+
+    #parent {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+      height: fit-content;
+      width: fit-content;
+      background-color: transparent;
+    }
+
+    #one {
+      background-color: red;
+    }
+
+    #two {
+      position: relative;
+      right: 25px;
+      background-color: yellow;
+    }
+
+    #three {
+      background-color: blue;
+    }
+  </style>
+  <body>
+    <div id="parent">
+      <div class="square" id="one"></div>
+      <div class="square" id="two"></div>
+      <div class="square" id="three"></div>
+    </div>
+  </body>
+</html>
