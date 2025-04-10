@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Items & Content</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .parent {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+        grid-auto-columns: 50px;
+        grid-auto-rows: 50px;
+        gap: 5px;
+        border: 1px solid red;
+        justify-items: center;
+        align-items: start;
+        justify-content: center;
+        align-content: center;
+      }
+
+      .children {
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="children">1</div>
+      <div class="children">2</div>
+      <div class="children">3</div>
+      <div class="children">4</div>
+      <div class="children">5</div>
+      <div class="children">6</div>
+      <div class="children">7</div>
+      <div class="children">8</div>
+      <div class="children">9</div>
+    </div>
+  </body>
+</html>

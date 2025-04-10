@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basid DOM</title>
+    <style>
+      /* h1 {
+        display: none;
+      } */
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .decorate-body {
+        background-color: red;
+        border: 1px solid yellow;
+      }
+    </style>
+  </head>
+  <body class="dummy">
+    <h1>Title</h1>
+    <button>Hide title</button>
+    <button>Make title red</button>
+    <button>Add decorate background</button>
+    <button>Remove decorate background</button>
+    <button>Toggle decorate background</button>
+
+    <small>Click + key to enlarge the title</small>
+
+    <script>
+      const title = document.getElementsByTagName("h1");
+      const button = document.getElementsByTagName("button");
+      const body = document.getElementsByTagName("body");
+
+      button[0].addEventListener("click", () => {
+        title[0].style.display = "none";
+      });
+
+      button[1].addEventListener("click", () => {
+        title[0].style.color = "red";
+      });
+
+      let fontSize = 20;
+      title[0].style.fontSize = fontSize + "px";
+
+      document.addEventListener("keydown", (event) => {
+        if (event.ctrlKey && event.key === "+") {
+          fontSize = fontSize + 10;
+          title[0].style.fontSize = fontSize + "px";
+        }
+
+        console.log(event);
+      });
+
+      button[2].addEventListener("click", () => {
+        body[0].classList.add("decorate-body");
+      });
+
+      button[3].addEventListener("click", () => {
+        body[0].classList.remove("decorate-body");
+      });
+
+      button[4].addEventListener("click", () => {
+        body[0].classList.toggle("decorate-body");
+      });
+    </script>
+  </body>
+</html>
