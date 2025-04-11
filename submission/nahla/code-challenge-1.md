@@ -2,7 +2,7 @@
 
 ## Profil Page
 
-[Profile Link](<(https://leetcode.com/u/nahlandyza/)>)
+[Profile Link](https://leetcode.com/u/nahlandyza/)
 
 ## Screenshot
 
