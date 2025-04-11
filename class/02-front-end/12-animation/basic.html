@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        display: grid;
+        min-height: 100vh;
+        margin: 0;
+        place-items: center;
+        /* jika align dan justify sama panjang */
+      }
+      div {
+        height: 50%;
+        width: 50%;
+        background-color: green;
+        /* border-radius: 50%; */
+        clip-path: polygon(
+          11% 54%,
+          15% 20%,
+          35% 0%,
+          65% 0%,
+          86% 18%,
+          89% 53%,
+          67% 76%,
+          79% 99%,
+          53% 78%,
+          43% 79%,
+          21% 99%,
+          33% 75%
+        );
+        animation-name: beat;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes beat {
+        0% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(1440deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basid DOM</title>
+    <style>
+      /* h1 {
+        display: none;
+      } */
+
+      h1 {
+        font-size: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Title</h1>
+    <button>Hide title</button>
+    <button>Make title red</button>
+    <small>Click + key to enlarge the title</small>
+
+    <script>
+      const title = document.getElementsByTagName("h1");
+      const button = document.getElementsByTagName("button");
+
+      button[0].addEventListener("click", () => {
+        title[0].style.display = "none";
+      });
+
+      button[1].addEventListener("click", () => {
+        title[0].style.color = "red";
+      });
+
+      let fontSize = 20;
+      title[0].style.fontSize = fontSize + "px";
+
+      document.addEventListener("keydown", (event) => {
+        if (event.ctrlKey && event.key === "+") {
+          fontSize = fontSize + 10;
+          title[0].style.fontSize = fontSize + "px";
+        }
+
+        console.log(event);
+      });
+    </script>
+  </body>
+</html>

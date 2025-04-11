@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Holy Grail</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .grid-parent {
+        display: grid;
+        min-height: 100vh;
+        min-width: 100vw;
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-rows: 1fr 5fr 1fr;
+        grid-template-areas: 
+        "header header header"
+        "left content right"
+        "footer footer footer";
+      }
+
+      .header {
+        width: 100%;
+        background-color: pink;
+        grid-area: footer;
+      }
+
+      .left {
+        background-color: green;
+        grid-area: content;
+      }
+
+      .content{
+        background-color: khaki;
+        grid-area: left;
+      }
+      .right {
+        background-color: orange;
+      }
+      .footer {
+        background-color: purple;
+        grid-column-start: 1;
+        grid-column-end: end;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-parent">
+      <div class="header"></div>
+      <div class="left"></div>
+      <div class="content"></div>
+      <div class="right"></div>
+      <div class="footer"></div>
+    </div>
+  </body>
+</html>
