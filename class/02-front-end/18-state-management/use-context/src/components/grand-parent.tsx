@@ -10,7 +10,9 @@ export default function GrandParent() {
   return (
     <div className="p-5 grand-parent border">
       <p>Grand Parent: {familyProfile?.grandParent}</p>
-      <Parent />
+      <Parent>
+        <p>Hello</p>
+      </Parent>
     </div>
   );
 }
