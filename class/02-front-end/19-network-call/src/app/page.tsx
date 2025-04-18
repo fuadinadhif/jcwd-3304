@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function HomePage() {
-  const [allUserData, setAllUserData] = useState([]);
+  const [allUserData, setAllUserData] = useState<
+    { objectId: string; name: string }[]
+  >([]);
   const [refresh, setRefresh] = useState(0);
 
   // 1. dot then
@@ -34,12 +36,32 @@ export default function HomePage() {
     getAllUserData();
   }, [refresh]);
 
-  allUserData.map((item) => console.log(item));
+  // allUserData.map((item) => console.log(item));
+
+  async function handleDelete(objectId: string) {
+    try {
+      const res = await fetch(
+        `https://pallywaves-us.backendless.app/api/data/Users/${objectId}`,
+        { method: "DELETE" }
+      );
+
+      if (!res.ok) {
+        alert("Failed to delete user data");
+      } else {
+        setAllUserData((prev) =>
+          prev.filter((item) => item.objectId !== objectId)
+        );
+        alert("User has been deleted");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <main>
       <h1>Network Call</h1>
-      {allUserData?.map((item: { objectId: string; name: string }) => (
+      {allUserData?.map((item) => (
         <div key={item.objectId} className="mb-5">
           <p>{item.name}</p>
           <Link
@@ -48,7 +70,12 @@ export default function HomePage() {
           >
             Update
           </Link>
-          <button className="border border-white p-2">Delete</button>
+          <button
+            className="border border-white p-2"
+            onClick={() => handleDelete(item.objectId)}
+          >
+            Delete
+          </button>
         </div>
       ))}
 

@@ -1,8 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-export default function RandomPage(props) {
+export default function RandomPage(props: {
+  params: Promise<{ "object-id": string }>;
+}) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -10,7 +12,7 @@ export default function RandomPage(props) {
 
   useEffect(() => {
     async function getUserData() {
-      const objectId = await props.params["object-id"];
+      const objectId = (await props.params)["object-id"];
 
       try {
         const res = await fetch(
@@ -29,7 +31,31 @@ export default function RandomPage(props) {
     getUserData();
   }, []);
 
-  function handleSubmit() {}
+  async function handleSubmit(event: React.FormEvent) {
+    event.preventDefault();
+
+    try {
+      const objectId = (await props.params)["object-id"];
+      const res = await fetch(
+        `https://pallywaves-us.backendless.app/api/data/Users/${objectId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (!res.ok) {
+        alert("Update user data has been failed");
+      } else {
+        alert("Successfully update user data");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <main>
