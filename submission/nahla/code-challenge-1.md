@@ -7,7 +7,7 @@
 ## Screenshot
 
 1. Easy 1
-   ![Easy 1 Screenshot](easy-1.png)
+   ![Easy 1 Screenshot](easy-1.png)g
 
 2. Easy 2
    ![Easy 2 Screenshot](easy-2.png)
