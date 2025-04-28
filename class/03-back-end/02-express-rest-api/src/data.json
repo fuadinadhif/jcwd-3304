@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "age": 50,
+    "address": "Palmerah, Jakarta Barat",
+    "email": "johndoe@mail.com"
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "age": 32,
+    "address": "Kemang, Jakarta Selatan",
+    "email": "janesmith@mail.com"
+  },
+  {
+    "id": 3,
+    "name": "Michael Tan",
+    "age": 41,
+    "address": "Cikarang, Bekasi",
+    "email": "michaeltan@mail.com"
+  },
+  {
+    "id": 5,
+    "name": "Rudi Hartono",
+    "age": 36,
+    "address": "Sunter, Jakarta Utara",
+    "email": "rudihartono@mail.com"
+  }
+]
