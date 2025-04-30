@@ -7,14 +7,14 @@ import {
   getUserById,
   updateUser,
 } from "../controllers/user-controller.js";
-import { helloMiddleware } from "../middlewares/hello-middleware.js";
-import { verifyMiddleware } from "../middlewares/verify-middleware.js";
+// import { helloMiddleware } from "../middlewares/hello-middleware.js";
+// import { verifyMiddleware } from "../middlewares/verify-middleware.js";
 
 const router = express.Router();
 
 router
   .route("/users")
-  .get(helloMiddleware, verifyMiddleware, getAllUser)
+  .get(getAllUser)
   .post(createNewUser)
   .delete(deleteAllUser);
 router

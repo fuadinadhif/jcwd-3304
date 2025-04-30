@@ -1,0 +1,26 @@
+[
+  {
+    "id": 3,
+    "date": "2025-04-30",
+    "title": "Unknown",
+    "nominal": 60000,
+    "category": "others",
+    "type": "income"
+  },
+  {
+    "id": 4,
+    "title": "Freelance Project",
+    "nominal": 1200,
+    "type": "income",
+    "category": "salary",
+    "date": "2025-04-10"
+  },
+  {
+    "id": 5,
+    "title": "Dinner with Friends",
+    "nominal": 80,
+    "type": "expense",
+    "category": "food",
+    "date": "2025-04-12"
+  }
+]

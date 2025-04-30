@@ -1,4 +1,5 @@
 import Carousel from "@/components/carousel";
+import CircularText from "@/components/circular-text";
 
 export default function HomePage() {
   const carouselItems = [
@@ -27,6 +28,13 @@ export default function HomePage() {
     <main className="min-h-screen flex flex-col justify-center items-center p-4">
       <h1 className="text-2xl font-light mb-8">Minimalist Carousel</h1>
       <Carousel items={carouselItems} />
+
+      <CircularText
+        text="REACT*BITS*COMPONENTS*"
+        onHover="speedUp"
+        spinDuration={20}
+        className="custom-class"
+      />
     </main>
   );
 }

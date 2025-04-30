@@ -1,12 +1,33 @@
 import { Request, Response, NextFunction } from "express";
 import { iqraFile, uktubFile } from "../utils/io.js";
 
+/* -------------------------------------------------------------------------- */
+/*                                     GET                                    */
+/* -------------------------------------------------------------------------- */
 export async function getAllUser(
   req: Request,
   res: Response,
   next: NextFunction
 ) {
-  const userData = await iqraFile("src/data.json");
+  // const age = req.query.age;
+  // const name = req.query.name;
+  const { age, name } = req.query;
+
+  let userData = await iqraFile("src/data.json");
+
+  if (age) {
+    userData = userData.filter((user: { age: number }) => user.age >= +age);
+  }
+
+  if (name) {
+    userData = userData.filter((user: { name: string }) => {
+      return user.name
+        .toLowerCase()
+        .split(" ")
+        .includes((name as string).toLowerCase());
+    });
+  }
+
   res.status(200).json(userData);
 }
 
@@ -23,6 +44,9 @@ export async function getUserById(
   res.status(200).json(singleUserData);
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                    POST                                    */
+/* -------------------------------------------------------------------------- */
 export async function createNewUser(
   req: Request,
   res: Response,
@@ -56,6 +80,9 @@ export async function createNewUser(
   res.status(201).json({ message: "New user created" });
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                     PUT                                    */
+/* -------------------------------------------------------------------------- */
 export async function updateUser(
   req: Request,
   res: Response,
@@ -78,6 +105,9 @@ export async function updateUser(
   res.status(200).json({ message: "User updated" });
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                   DELETE                                   */
+/* -------------------------------------------------------------------------- */
 export async function deleteUserById(
   req: Request,
   res: Response,
@@ -105,3 +135,18 @@ export async function deleteAllUser(
 
   res.status(200).json({ message: "All users has been deleted" });
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                    NOTES                                   */
+/* -------------------------------------------------------------------------- */
+// const person = {
+//   name: "Dede",
+//   age: 50,
+// };
+
+// const name = person.name;
+// const age = person.age;
+// const { name, age } = person;
+
+// console.log(name);
+// console.log(age);

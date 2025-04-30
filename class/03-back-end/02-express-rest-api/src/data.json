@@ -1,10 +1,44 @@
 [
   {
     "id": 1,
-    "title": "Makan padang gerobak",
-    "nominal": 13000,
-    "type": "expense",
-    "category": "food",
-    "date": "2025-04-29"
+    "name": "John Doe",
+    "age": 50,
+    "address": "Palmerah, Jakarta Barat",
+    "email": "johndoe@mail.com"
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "age": 32,
+    "address": "Kemang, Jakarta Selatan",
+    "email": "janesmith@mail.com"
+  },
+  {
+    "id": 3,
+    "name": "Michael Tan",
+    "age": 41,
+    "address": "Cikarang, Bekasi",
+    "email": "michaeltan@mail.com"
+  },
+  {
+    "id": 4,
+    "name": "Siti Aminah",
+    "age": 27,
+    "address": "Depok, Jawa Barat",
+    "email": "sitiaminah@mail.com"
+  },
+  {
+    "id": 5,
+    "name": "Rudi Hartono",
+    "age": 36,
+    "address": "Sunter, Jakarta Utara",
+    "email": "rudihartono@mail.com"
+  },
+  {
+    "id": 6,
+    "name": "Tan Hartono",
+    "age": 15,
+    "address": "PIK, Jakarta Utara",
+    "email": "tanhartono@mail.com"
   }
 ]

@@ -17,8 +17,8 @@ app.use(
 // Middleware (Built In) -> Untuk membaca data json yang dikirim oleh client
 app.use(express.json());
 
-app.get("/api", (req: Request, res: Response) => {
-  res.status(200).json({ message: "Welcome to my first Express.js API" });
+app.get("/api/v1/status", (req: Request, res: Response) => {
+  res.status(200).json({ message: "API running" });
 });
 
 app.use("/api/v1", userRouter);
@@ -32,7 +32,8 @@ app.use((req: Request, res: Response) => {
 
 // Error Middleware
 app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
-  res.status(500).send("<h1>The route you are looking for does not exist</h1>");
+  console.error(error);
+  res.status(500).send("<h1>General Error. Good luck!</h1>");
 });
 
 app.listen(PORT, () => {
