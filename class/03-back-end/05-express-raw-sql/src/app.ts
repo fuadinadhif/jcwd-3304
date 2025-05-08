@@ -83,6 +83,45 @@ app.get("/api/v1/authors", async (req: Request, res: Response) => {
   }
 });
 
+/* -------------------------------------------------------------------------- */
+/*                                     PUT                                    */
+/* -------------------------------------------------------------------------- */
+/* ---------------------- PUT - Transfer authors point ---------------------- */
+app.put(
+  "/api/v1/authors/transfer-points",
+  async (req: Request, res: Response) => {
+    const { from, to, points } = req.body;
+    try {
+      // Begin transaction
+      await pool.query("BEGIN");
+
+      // First query
+      await pool.query(
+        `UPDATE authors
+      SET point = point - $1
+      WHERE id = $2`,
+        [points, from]
+      );
+
+      // Second query
+      await pool.query(
+        `UPDATE authorssss
+      SET point = point + $1
+      WHERE id = $2`,
+        [points, to]
+      );
+
+      await pool.query("COMMIT");
+
+      res.status(200).json({ message: "Transferred points succeed" });
+    } catch (error) {
+      await pool.query("ROLLBACK");
+      console.error(error);
+      res.status(500).json({ message: "Transfer points failed", error });
+    }
+  }
+);
+
 app.listen(PORT, () => {
   console.info(`Server is running on http://localhost:${PORT}`);
 });
