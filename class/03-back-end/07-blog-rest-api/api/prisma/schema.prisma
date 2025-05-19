@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  AUTHOR
+  READER
+}
+
+model User {
+  id          Int       @id @default(autoincrement())
+  name        String
+  email       String    @unique
+  username    String    @unique
+  password    String
+  dateOfBirth DateTime?
+  role        Role      @default(READER)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  Article Article[]
+}
+
+model Article {
+  id        Int      @id @default(autoincrement())
+  title     String
+  preview   String
+  content   String
+  userId    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  User            User              @relation(fields: [userId], references: [id])
+  ArticleCategory ArticleCategory[]
+  ImagePreview    Image[]           @relation("ImagePreview")
+  ImageContent    Image[]           @relation("ImageContent")
+}
+
+model Category {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  ArticleCategory ArticleCategory[]
+}
+
+model ArticleCategory {
+  id         Int @id @default(autoincrement())
+  articleId  Int
+  categoryId Int
+
+  Article  Article  @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  Category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@unique([articleId, categoryId])
+}
+
+model Image {
+  id               Int      @id @default(autoincrement())
+  url              String
+  previewArticleId Int?
+  contentArticleId Int?
+  createdAt        DateTime @default(now())
+
+  PreviewArticle Article? @relation("ImagePreview", fields: [previewArticleId], references: [id])
+  ContentArticle Article? @relation("ImageContent", fields: [contentArticleId], references: [id])
+}

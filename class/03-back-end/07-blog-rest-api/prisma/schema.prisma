@@ -6,65 +6,10 @@
 
 generator client {
   provider = "prisma-client-js"
+  output   = "../generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-}
-
-enum Role {
-  ADMIN
-  AUTHOR
-  READER
-}
-
-model User {
-  id          Int       @id @default(autoincrement())
-  name        String
-  email       String    @unique
-  username    String    @unique
-  password    String
-  dateOfBirth DateTime?
-  role        Role      @default(READER)
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-
-  Article Article[]
-}
-
-model Article {
-  id           Int      @id @default(autoincrement())
-  title        String
-  preview      String
-  content      String
-  imagePreview String
-  imageContent String
-  userId       Int
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-
-  User            User              @relation(fields: [userId], references: [id])
-  ArticleCategory ArticleCategory[]
-}
-
-model Category {
-  id          Int      @id @default(autoincrement())
-  name        String
-  description String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  ArticleCategory ArticleCategory[]
-}
-
-model ArticleCategory {
-  id         Int @id @default(autoincrement())
-  articleId  Int
-  categoryId Int
-
-  Article  Article  @relation(fields: [articleId], references: [id])
-  Category Category @relation(fields: [categoryId], references: [id])
-
-  @@unique([articleId, categoryId])
 }

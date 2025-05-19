@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    ports:
+      - 8000:8000
+      - 5555:5555
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://postgres:newpass@db:5432/docker-express?schema=public
+
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: newpass
+      POSTGRES_DB: docker-express
+    volumes:
+      - postgres-storage:/var/lib/postgresql/data
+
+volumes:
+  postgres-storage:
