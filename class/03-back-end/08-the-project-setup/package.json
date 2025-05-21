@@ -1,0 +1,23 @@
+{
+  "name": "08-project-setup",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "npx turbo run build",
+    "check-types": "npx turbo run check-types",
+    "dev": "npx turbo run dev",
+    "lint": "npx turbo run lint",
+    "start": "npx turbo run start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "workspaces": [
+    "apps/*"
+  ],
+  "packageManager": "npm@11.3.0",
+  "dependencies": {
+    "turbo": "^2.5.3"
+  }
+}
